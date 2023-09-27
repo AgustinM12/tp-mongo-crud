@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
-import {connectMongoDB} from "./config/connection.js"
-import { allRouter } from "./routes/all.routes.js";
+import { connectMongoDB } from "./src/config/connection.js"
+import { allRouter } from "./src/routes/all.routes.js";
 
 const app = express()
 app.use(morgan("dev"))
