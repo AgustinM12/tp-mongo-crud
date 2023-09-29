@@ -1,17 +1,22 @@
 import { Router } from "express";
 import { PostModel } from "../models/PostModel.js";
 import { UserModel } from "../models/UserModel.js";
+import { ctrlCreateUser, ctrlFindAllUsers } from "../controllers/user.controllers.js";
+import { ctrlCreatePost } from "../controllers/post.controllers.js";
 
 const allRouter = Router();
+
+allRouter.post("/newUser", ctrlCreateUser)
+
+allRouter.post("/newPost", ctrlCreatePost)
+
+allRouter.get("/find", ctrlFindAllUsers)
+
+
 
 allRouter.get('/new', async (req, res) => {
 
     try {
-
-        const user = await UserModel.create({
-            nombre: "admin",
-            email: "admin@gmail.com",
-        })
 
         const publicacion1 = await PostModel.create({
             titulo: "publicacion 1",
